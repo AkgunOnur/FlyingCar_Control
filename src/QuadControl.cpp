@@ -71,27 +71,27 @@ VehicleCommand QuadControl::GenerateMotorCommands(float collThrustCmd, V3F momen
   ////////////////////////////// BEGIN STUDENT CODE ///////////////////////////
 
   
-  cmd.desiredThrustsN[0] = mass * 9.81f / 4.f; // front left
-  cmd.desiredThrustsN[1] = mass * 9.81f / 4.f; // front right
-  cmd.desiredThrustsN[2] = mass * 9.81f / 4.f; // rear left
-  cmd.desiredThrustsN[3] = mass * 9.81f / 4.f; // rear right
+  //cmd.desiredThrustsN[0] = mass * 9.81f / 4.f; // front left
+  //cmd.desiredThrustsN[1] = mass * 9.81f / 4.f; // front right
+  //cmd.desiredThrustsN[2] = mass * 9.81f / 4.f; // rear left
+  //cmd.desiredThrustsN[3] = mass * 9.81f / 4.f; // rear right
   
-	//float l = L / sqrt(2.0);
-	//
-	//float Fx = momentCmd.x / l; 
-	//float Fy = momentCmd.y / l; 
-	//float Fz = momentCmd.z / kappa; 
-	//float Ft = collThrustCmd; 
+	float l = L / sqrt(2.0);
+	
+	float Fx = momentCmd.x / l; 
+	float Fy = momentCmd.y / l; 
+	float Fz = momentCmd.z / kappa; 
+	float Ft = collThrustCmd; 
 
-	//float f0 = 0.25 * (Fx + Fy - Fz + Ft);
-	//float f1 = 0.25 * (-Fx + Fy + Fz + Ft);
-	//float f2 = 0.25 * (Fx - Fy + Fz + Ft);
-	//float f3 = 0.25 * (-Fx - Fy - Fz + Ft);
+	float f0 = 0.25 * (Fx + Fy - Fz + Ft);
+	float f1 = 0.25 * (-Fx + Fy + Fz + Ft);
+	float f2 = 0.25 * (Fx - Fy + Fz + Ft);
+	float f3 = 0.25 * (-Fx - Fy - Fz + Ft);
 
-	//cmd.desiredThrustsN[0] = CONSTRAIN(f0, minMotorThrust, maxMotorThrust);
-	//cmd.desiredThrustsN[1] = CONSTRAIN(f1, minMotorThrust, maxMotorThrust);
-	//cmd.desiredThrustsN[2] = CONSTRAIN(f2, minMotorThrust, maxMotorThrust);
-	//cmd.desiredThrustsN[3] = CONSTRAIN(f3, minMotorThrust, maxMotorThrust);
+	cmd.desiredThrustsN[0] = CONSTRAIN(f0, minMotorThrust, maxMotorThrust);
+	cmd.desiredThrustsN[1] = CONSTRAIN(f1, minMotorThrust, maxMotorThrust);
+	cmd.desiredThrustsN[2] = CONSTRAIN(f2, minMotorThrust, maxMotorThrust);
+	cmd.desiredThrustsN[3] = CONSTRAIN(f3, minMotorThrust, maxMotorThrust);
 
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
