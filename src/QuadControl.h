@@ -48,4 +48,6 @@ public:
 
   // integral control
   float integratedAltitudeError;
+  float integratedPosXError;
+  float integratedPosYError;
 };

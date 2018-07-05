@@ -256,15 +256,15 @@ V3F QuadControl::LateralPositionControl(V3F posCmd, V3F velCmd, V3F pos, V3F vel
   velCmd[0] = CONSTRAIN(velCmd[0], -maxSpeedXY, maxSpeedXY);
   velCmd[1] = CONSTRAIN(velCmd[1], -maxSpeedXY, maxSpeedXY);
 
+
   des_acc.x = kpPosXY * (posCmd[0] - pos[0]) + kpVelXY * (velCmd[0] - vel[0]) + accelCmdFF[0];
   des_acc.y = kpPosXY * (posCmd[1] - pos[1]) + kpVelXY * (velCmd[1] - vel[1]) + accelCmdFF[1];
   
-  des_acc.x = -des_acc.x;
-  des_acc.y = -des_acc.y;
 
   des_acc.x = CONSTRAIN(des_acc.x, -maxAccelXY, maxAccelXY);
   des_acc.y = CONSTRAIN(des_acc.y, -maxAccelXY, maxAccelXY);
   des_acc.z = 0;
+
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
   return des_acc;
